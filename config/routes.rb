@@ -1,4 +1,18 @@
 EventsCalendar::Application.routes.draw do
+  get "events/index"
+
+  get "events/show"
+
+  get "events/new"
+
+  get "events/create"
+
+  get "events/edit"
+
+  get "events/update"
+
+  get "events/destroy"
+
   devise_for :users
 
   # The priority is based upon order of creation:

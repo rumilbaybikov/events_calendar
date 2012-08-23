@@ -1,11 +1,22 @@
 class EventsController < ApplicationController
-  #before_filter :authenticate_user!
-
-  def show
-
+  def index
   end
 
-  def index
+  def show
+  end
 
+  def new
+  end
+
+  def create
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
   end
 end
