@@ -1,4 +1,8 @@
 EventsCalendar::Application.routes.draw do
+  root :to => "pages#home"
+
+  get "pages/home"
+
   get "events/index"
 
   get "events/show"
@@ -71,9 +75,12 @@ EventsCalendar::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
-  root :to => "home#index"
 
   resources :users, :only => [:index, :show]
 
   resources :events, :only => [:index, :show]
+
+  devise_scope :user do
+    get "sign_in", :to => "devise/sessions#new"
+  end
 end
