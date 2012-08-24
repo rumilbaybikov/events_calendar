@@ -1,0 +1,14 @@
+<% if @event.errors.any? %>
+  <div class="flash errors">
+    <div id="error_explanation">
+      <%= pluralize(@event.errors.count, "error") %>
+        prohibited this user from being saved:
+      <p>There were problems with the following fields:</p>
+      <ul>
+        <% @event.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>

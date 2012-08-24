@@ -98,3 +98,55 @@ footer nav {
 #share-review {
     display:none;
 }
+
+#create-event {
+    text-align: right;
+    margin-top: 20px;
+    margin-right: 52px;
+}
+
+/* errors */
+.flash {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 1.3em;
+    margin-bottom: 2em;
+    padding: 0.8em;
+}
+
+.review-flash {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 1.3em;
+    margin-bottom: 1.6em;
+    padding-top: 0.5em;
+    line-height: 1em;
+    width: 370px;
+}
+
+.review-flash.errors {
+    background: #f4b4b4 url(../images/shadow_top.png) 0px -50px repeat-x;
+    color: #000000;
+    border: 1px solid #000000;
+}
+
+.review-flash.notice {
+    background: #ccddff url(../images/shadow_top.png) 0px -50px repeat-x;
+    color: #556699;
+    border: 1px solid #99aacc;
+    padding-bottom: 11px;
+    padding-left: 20px;
+}
+
+.flash.notice {
+    background: #ccddff url(../images/shadow_top.png) 0px -50px repeat-x;
+    color: #556699;
+    border: 1px solid #99aacc;
+}
+.flash.errors {
+    background: #f4b4b4 url(../images/shadow_top.png) 0px -50px repeat-x;
+    color: #000000;
+    border: 1px solid #000000;
+}

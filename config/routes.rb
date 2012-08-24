@@ -1,21 +1,9 @@
 EventsCalendar::Application.routes.draw do
+  get 'events/create'
+
+  get "calendars/show"
+
   root :to => "pages#home"
-
-  get "pages/home"
-
-  get "events/index"
-
-  get "events/show"
-
-  get "events/new"
-
-  get "events/create"
-
-  get "events/edit"
-
-  get "events/update"
-
-  get "events/destroy"
 
   devise_for :users
 
@@ -78,7 +66,7 @@ EventsCalendar::Application.routes.draw do
 
   resources :users, :only => [:index, :show]
 
-  resources :events, :only => [:index, :show]
+  resources :events
 
   devise_scope :user do
     get "sign_in", :to => "devise/sessions#new"

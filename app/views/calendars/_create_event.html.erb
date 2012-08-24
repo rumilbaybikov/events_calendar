@@ -1,0 +1,25 @@
+<div id="share-review">
+  <h2> Please leave us a review and a rating</h2>
+  <table class="review-table">
+    <tbody>
+    <tr>
+      <td align="center">
+        <div id="event-error-messages">
+          <%= render 'shared/error_messages' %>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <%= form_for @event, :remote => true do |f| %>
+      <p>
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+      </p>
+      <p>
+        <%= date_select 'event', 'date_event' %>
+      </p>
+      <p><%= f.submit "Submit", :class => "review-button" %></p>
+      <input type="button" class="review-button" onclick="Dialog.cancelCallback()" value="Cancel">
+  <% end %>
+</div>
