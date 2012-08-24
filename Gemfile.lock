@@ -135,6 +135,9 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise
+  diff-lcs (= 1.1.3)
+  erubis (= 2.7.0)
+  hike (= 1.2.1)
   jquery-rails
   rails (= 3.2.8)
   rspec (= 2.0.1)

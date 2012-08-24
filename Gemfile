@@ -50,3 +50,7 @@ gem 'jquery-rails'
 gem 'devise'
 
 gem 'therubyracer'
+
+gem 'diff-lcs', '1.1.3'
+gem 'erubis', '2.7.0'
+gem 'hike',  '1.2.1'

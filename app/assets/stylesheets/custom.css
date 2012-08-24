@@ -94,3 +94,7 @@ footer {
 footer nav {
     float: none;
 }
+
+#share-review {
+    display:none;
+}

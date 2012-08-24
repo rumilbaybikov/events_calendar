@@ -2,8 +2,36 @@
 <html>
 <head>
   <title>EventsCalendar</title>
-  <%= csrf_meta_tags %>
-  <%= render 'layouts/stylesheets' %>
+  <%= csrf_meta_tag %>
+  <%= stylesheet_link_tag "application", 'custom' %>
+  <%= stylesheet_link_tag 'master' %>
+  <%= stylesheet_link_tag 'pop_up/alert', 'pop_up/alphacube', 'pop_up/default' %>
+  <%= javascript_include_tag 'jquery.smooth-scroll.min', 'jquery-1.7.2.min', 'jquery-ui-1.8.18.custom.min', "application" %>
+  <%= javascript_include_tag 'coda' %>
+  <%= javascript_include_tag 'pop_up/prototype.js', 'pop_up/effects.js', 'pop_up/window.js', 'pop_up/window_effects.js' %>
+  <style type="text/css">
+      .popup_effect1 {
+          background:#11455A;
+          opacity: 0.2;
+      }
+      .popup_effect2 {
+          background:#FF0041;
+          border: 3px dashed #000;
+      }
+  </style>
+  <script>
+      function setupCalendars() {
+          // Embedded Calendar
+          Calendar.setup(
+                  {
+                      dateField: 'embeddedDateField',
+                      parentElement: 'embeddedCalendar'
+                  }
+          )
+      }
+
+      Event.observe(window, 'load', function() { setupCalendars() })
+  </script>
 </head>
 <body>
 <div class="container">
