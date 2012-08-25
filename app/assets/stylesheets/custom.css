@@ -1,12 +1,14 @@
 .container {
     width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 body {
-    font-family: Helvetica, "Lucida Grande", "Lucida Sans Unicode", sans-serif;
     background: #cff;
+    font-family: Helvetica, "Lucida Grande", "Lucida Sans Unicode", sans-serif;
 }
 header {
-    padding-top: 20px;
+    padding-top: 10px;
 }
 header img {
     padding: 5px;
@@ -101,9 +103,8 @@ footer nav {
 }
 
 #create-event {
+    margin-top: 14px;
     text-align: right;
-    margin-top: 20px;
-    margin-right: 52px;
 }
 
 /* errors */
@@ -230,7 +231,7 @@ nav
     min-height: 20px;
     /*padding: 19px;*/
     margin-bottom: 20px;
-    margin-top: 32px;
+    margin-top: 10px;
     background-color: #f5f5f5;
     border: 1px solid #e3e3e3;
     -webkit-border-radius: 4px;
@@ -250,4 +251,17 @@ nav
 
 .hidden-event {
     display: none;
+}
+
+#sign-in {
+    text-align: center;
+}
+
+#calendar-td {
+    margin-bottom: 0px;
+    valign: "top";
+}
+
+section {
+    height: 542px;
 }

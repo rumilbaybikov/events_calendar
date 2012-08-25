@@ -3,7 +3,7 @@
 <head>
   <title>EventsCalendar</title>
   <%= csrf_meta_tag %>
-  <%= stylesheet_link_tag "application", 'custom' %>
+  <%= stylesheet_link_tag "application", 'custom', 'bootstrap' %>
   <%= stylesheet_link_tag 'master' %>
   <%= stylesheet_link_tag 'pop_up/alert', 'pop_up/alphacube', 'pop_up/default' %>
   <%= javascript_include_tag 'jquery-1.7.2.min', 'jquery-ui-1.8.18.custom.min', 'rails', "application" %>
@@ -44,7 +44,6 @@
   <section class="round">
     <%= yield %>
   </section>
-  <%= render 'layouts/footer' %>
 </div>
 </body>
 </html>

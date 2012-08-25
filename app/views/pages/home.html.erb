@@ -1,7 +1,7 @@
 <table>
   <tbody>
   <tr>
-    <td valign="top">
+    <td id="calendar-td">
       <label id="<%= @month %>" class="month-label"><%= Date::MONTHNAMES[@month] %></label>
       <label id="<%= @year %>" class="year-label"><%= @year %></label>
       <table id="calendar-table" cellspacing="0">
@@ -52,13 +52,12 @@
         <th>Sun</th>
         </tfoot>
       </table>
-
+    </td>
+    <td valign="top">
       <div id="create-event">
         <%= link_to_prototype_dialog 'Create an event', 'save-update-event', 'confirm',
                                      {:className => "alphacube", :width => '450', :height => 'null'} %>
       </div>
-    </td>
-    <td valign="top">
       <div class="well" style="max-width: 340px; padding: 8px 0;">
         <%= render 'shared/events' %>
       </div>
