@@ -1,8 +1,6 @@
 EventsCalendar::Application.routes.draw do
   get 'events/create'
 
-  get "calendars/show"
-
   root :to => "pages#home"
 
   devise_for :users
@@ -68,7 +66,7 @@ EventsCalendar::Application.routes.draw do
 
   resources :events
 
-  match 'calendars/current_events', :to => 'events#index', :via => :post
+  match 'current_events', :to => 'events#index', :via => :post
 
   devise_scope :user do
     get "sign_in", :to => "devise/sessions#new"
