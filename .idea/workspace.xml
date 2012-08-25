@@ -19,19 +19,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="events_controller.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="events_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/events_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="37" selection-start="367" selection-end="367" vertical-scroll-proportion="0.35714287">
+            <state line="9" column="26" selection-start="476" selection-end="476" vertical-scroll-proportion="-2.2131147">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create.js.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/events/create.js.erb">
+      <file leaf-file-name="_events.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/shared/_events.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="37" selection-start="131" selection-end="131" vertical-scroll-proportion="-0.625">
+            <state line="9" column="41" selection-start="292" selection-end="292" vertical-scroll-proportion="0.14983352">
               <folding />
             </state>
           </provider>
@@ -40,7 +40,7 @@
       <file leaf-file-name="calendars_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/calendars_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="10" selection-start="1167" selection-end="1167" vertical-scroll-proportion="0.0">
+            <state line="6" column="28" selection-start="163" selection-end="163" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -49,34 +49,7 @@
       <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="29" selection-start="287" selection-end="287" vertical-scroll-proportion="-5.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_create_event.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/calendars/_create_event.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="46" selection-start="496" selection-end="496" vertical-scroll-proportion="-8.125">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="event.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/event.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="25" selection-start="58" selection-end="58" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/events/create.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="32" column="18" selection-start="1129" selection-end="1129" vertical-scroll-proportion="-20.0">
               <folding />
             </state>
           </provider>
@@ -85,25 +58,16 @@
       <file leaf-file-name="routes.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/routes.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="19" selection-start="1955" selection-end="1955" vertical-scroll-proportion="0.0">
+            <state line="69" column="46" selection-start="1956" selection-end="1956" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rails.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/rails.js">
+      <file leaf-file-name="show.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/calendars/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="4" column="79" selection-start="109" selection-end="133" vertical-scroll-proportion="-2.5">
               <folding />
             </state>
           </provider>
@@ -125,22 +89,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/events/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/events/_share-review.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/master.css" />
         <option value="$PROJECT_DIR$/app/views/events/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/calendars/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/pages/home.html.erb" />
         <option value="$PROJECT_DIR$/app/views/calendars/_share-review.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/calendars_controller.rb" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/custom.css" />
         <option value="$PROJECT_DIR$/app/views/shared/_error_messages.html.erb" />
         <option value="$PROJECT_DIR$/app/views/events/create.js.erb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/models/event.rb" />
         <option value="$PROJECT_DIR$/app/views/calendars/_create_event.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/custom.css" />
+        <option value="$PROJECT_DIR$/app/controllers/calendars_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/calendars/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/events_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/shared/_events.html.erb" />
       </list>
     </option>
   </component>
@@ -389,6 +353,42 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mailers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="events_calendar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="events_calendar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="events_calendar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="events_calendar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -809,11 +809,11 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32914045" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2132964" sideWeight="0.5597484" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2132964" sideWeight="0.6708595" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.44025156" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2683438" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -877,37 +877,9 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/events.css.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/master.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="21" selection-start="21" selection-end="21" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="143" column="21" selection-start="2305" selection-end="2305" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/calendar_test.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/calendars/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="19" selection-start="1162" selection-end="1174" vertical-scroll-proportion="-23.75">
           <folding />
         </state>
       </provider>
@@ -919,9 +891,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/rails.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="19" selection-start="1955" selection-end="1955" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -933,44 +905,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/rails.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/calendars_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="10" selection-start="1167" selection-end="1167" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="29" selection-start="287" selection-end="287" vertical-scroll-proportion="-5.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/events/create.js.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="37" selection-start="131" selection-end="131" vertical-scroll-proportion="-0.625">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/events/create.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/calendars/_create_event.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="46" selection-start="496" selection-end="496" vertical-scroll-proportion="-8.125">
           <folding />
         </state>
       </provider>
@@ -982,9 +919,72 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/master.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="6" selection-start="405" selection-end="407" vertical-scroll-proportion="-8.193548">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="229" column="22" selection-start="3809" selection-end="3809" vertical-scroll-proportion="-12.064516">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/calendars/_create_event.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="22" selection-start="46" selection-end="46" vertical-scroll-proportion="0.023255814">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="46" selection-start="1956" selection-end="1956" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="18" selection-start="1129" selection-end="1129" vertical-scroll-proportion="-20.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/calendars_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="28" selection-start="163" selection-end="163" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/events/create.js.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="37" selection-start="131" selection-end="131" vertical-scroll-proportion="0.01664817">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/calendars/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="79" selection-start="109" selection-end="133" vertical-scroll-proportion="-2.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/events_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="37" selection-start="367" selection-end="367" vertical-scroll-proportion="0.35714287">
+        <state line="9" column="26" selection-start="476" selection-end="476" vertical-scroll-proportion="-2.2131147">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/shared/_events.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="41" selection-start="292" selection-end="292" vertical-scroll-proportion="0.14983352">
           <folding />
         </state>
       </provider>

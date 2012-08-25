@@ -2,8 +2,11 @@ class CalendarsController < ApplicationController
   require 'date'
 
   def show
-    first_day_of_month = DateTime.now.at_beginning_of_month
-    last_day_of_month = DateTime.now.at_end_of_month
+    date_time = DateTime.now
+    @year = date_time.year
+    @month = date_time.month
+    first_day_of_month = date_time.at_beginning_of_month
+    last_day_of_month = date_time.at_end_of_month
     day_of_week = first_day_of_month.wday
     @days_in_calendar_before = 0
     if day_of_week == 0

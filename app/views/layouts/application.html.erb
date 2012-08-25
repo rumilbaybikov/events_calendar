@@ -21,6 +21,24 @@
   </style>
 </head>
 <body>
+<script type="text/javascript">
+    $(function() {
+        $('a.open-events').live("click", function() {
+          var day = $(this).attr('id');
+          var month = $('.month-label').attr('id');
+          var year = $('.year-label').attr('id');
+          $.ajax({
+            dataType: "html",
+            data: {day: day, month: month, year: year},
+            url: "current_events",
+            type: "POST",
+            success: (function(data) {
+              $('div.well').html(data);
+            })
+          });
+        });
+    });
+</script>
 <div class="container">
   <%= render 'layouts/header' %>
   <section class="round">

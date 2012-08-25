@@ -1,0 +1,14 @@
+<ul class="nav nav-list">
+  <li class="nav-header">Events</li>
+  <% if @events.nil? %>
+    <li>Choose the date</li>
+  <% else %>
+    <% if @events.blank? %>
+      <li>No events on <%= @date %></li>
+    <% else %>
+      <% @events.each() do |event| %>
+        <li><a href="#"><%= event.name %></a></li>
+      <% end %>
+    <% end %>
+  <% end %>
+</ul>

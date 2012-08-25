@@ -1,56 +1,70 @@
-<table id="calendar-table" cellspacing="0">
-  <thead>
-  <tr>
-    <th>Mon</th><th>Tue</th><th>Wed</th>
-    <th>Thu</th><th>Fri</th><th>Sat</th>
-
-    <th>Sun</th>
-  </tr>
-  </thead>
+<table>
   <tbody>
-  <tr>
-    <%
-       i = @days_in_calendar_before
-       count = 0
-       while i > 0 do %>
-        <td class="padding"><%= @calendar_days[count] %></td>
-    <%
-       count += 1
-       i -= 1
-       end
-    %>
-    <% week_count = count
-       while count < @days_in_calendar do
-         week_count += 1
-    %>
-        <td><%= link_to_prototype_dialog @calendar_days[count], 'share-review', 'confirm',
-                                         {:className => "alphacube", :width => '450', :height => 'null'} %></td>
-        <% count += 1 %>
-        <% if week_count == 7
-             week_count = 0 %>
-            </tr><tr>
-        <% end %>
-    <% end %>
+    <tr>
+      <td valign="top">
+        <label id="<%= @month %>" class="month-label"><%= Date::MONTHNAMES[@month] %></label>
+        <label id="<%= @year %>" class="year-label"><%= @year %></label>
+        <table id="calendar-table" cellspacing="0">
+          <thead>
+          <tr>
+            <th>Mon</th><th>Tue</th><th>Wed</th>
+            <th>Thu</th><th>Fri</th><th>Sat</th>
 
-    <%
-       while count < @calendar_days.size do
-    %>
-        <td class="padding"><%= @calendar_days[count] %></td>
-        <% count += 1 %>
-    <% end %>
+            <th>Sun</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <%
+               i = @days_in_calendar_before
+               count = 0
+               while i > 0 do %>
+                <td class="padding"><%= @calendar_days[count] %></td>
+            <%
+               count += 1
+               i -= 1
+               end
+            %>
+            <% week_count = count
+               while count < @days_in_calendar do
+                 week_count += 1
+            %>
+                <td><a id="<%= @calendar_days[count] %>" class="open-events" href="javascript:void(0)"><%= @calendar_days[count] %></a></td>
+                <% count += 1 %>
+                <% if week_count == 7
+                     week_count = 0 %>
+                    </tr><tr>
+                <% end %>
+            <% end %>
+
+            <%
+               while count < @calendar_days.size do
+            %>
+                <td class="padding"><%= @calendar_days[count] %></td>
+                <% count += 1 %>
+            <% end %>
+            </tr>
+            </tbody>
+          <tfoot>
+
+          <th>Mon</th><th>Tue</th><th>Wed</th>
+          <th>Thu</th><th>Fri</th><th>Sat</th>
+          <th>Sun</th>
+          </tfoot>
+        </table>
+
+        <div id="create-event">
+          <%= link_to_prototype_dialog 'Create an event', 'share-review', 'confirm',
+                                       {:className => "alphacube", :width => '450', :height => 'null'} %>
+        </div>
+      </td>
+      <td valign="top">
+        <div class="well" style="max-width: 340px; padding: 8px 0;">
+          <%= render 'shared/events' %>
+        </div>
+      </td>
     </tr>
-    </tbody>
-  <tfoot>
-
-  <th>Mon</th><th>Tue</th><th>Wed</th>
-  <th>Thu</th><th>Fri</th><th>Sat</th>
-  <th>Sun</th>
-  </tfoot>
+  </tbody>
 </table>
-
-<div id="create-event">
-    <%= link_to_prototype_dialog 'Create event', 'share-review', 'confirm',
-                             {:className => "alphacube", :width => '450', :height => 'null'} %>
-</div>
 
 <%= render 'create_event' %>
