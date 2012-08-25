@@ -1,0 +1,25 @@
+<div id="save-update-event<%= event.id.nil? ? "" : event.id %>">
+  <h2>Adding new event</h2>
+  <table class="review-table">
+    <tbody>
+    <tr>
+      <td align="center">
+        <div id="event-error-messages">
+          <%= render 'shared/error_messages', :event => event %>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <%= form_for event, :remote => true do |f| %>
+      <p>
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+      </p>
+      <p>
+        <%= f.date_select :date_event %>
+      </p>
+      <p><%= f.submit "Submit", :class => "review-button" %></p>
+      <input type="button" class="review-button" onclick="Dialog.cancelCallback()" value="Cancel">
+  <% end %>
+</div>

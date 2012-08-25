@@ -16,6 +16,7 @@ class EventsController < ApplicationController
   end
 
   def create
+    @success_message = "created"
     @event = Event.new
     @event.name = params[:event][:name]
     @event.date_event = DateTime.new(params[:event]['date_event(1i)'].to_i,
@@ -31,6 +32,17 @@ class EventsController < ApplicationController
   end
 
   def update
+    @success_message = "udated"
+    id = params[:id]
+    @event = Event.find(id)
+    @event.name = params[:event][:name]
+    @event.date_event = DateTime.new(params[:event]['date_event(1i)'].to_i,
+                                     params[:event]['date_event(2i)'].to_i,
+                                     params[:event]['date_event(3i)'].to_i)
+    @success = @event.save
+    respond_to do |format|
+      format.js
+    end
   end
 
   def destroy

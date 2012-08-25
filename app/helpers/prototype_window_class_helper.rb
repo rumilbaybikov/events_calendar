@@ -28,7 +28,6 @@ module PrototypeWindowClassHelper
     
     
     def link_to_prototype_dialog(name, content, dialog_kind = 'alert', options = { :windowParameters => {} } , html_options = {} )
-    
         #dialog_kind: 'alert' (default), 'confirm' or 'info' (info dialogs should be destroyed with a javascript function call 'win.destroy')
         #options for this helper depending the dialog_kind: http://prototype-window.xilinus.com/documentation.html#alert (#confirm or #info)
     

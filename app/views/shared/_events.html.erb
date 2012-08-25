@@ -7,7 +7,11 @@
       <li>No events on <%= @date %></li>
     <% else %>
       <% @events.each() do |event| %>
-        <li><a href="#"><%= event.name %></a></li>
+        <div class="hidden-event">
+          <%= render 'shared/create_event', :event => event %>
+        </div>
+        <li><%= link_to_prototype_dialog event.name, 'save-update-event' + event.id.to_s, 'confirm',
+                                         {:className => "alphacube", :width => '450', :height => 'null'} %></li>
       <% end %>
     <% end %>
   <% end %>

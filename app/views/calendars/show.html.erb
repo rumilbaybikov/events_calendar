@@ -29,7 +29,7 @@
                while count < @days_in_calendar do
                  week_count += 1
             %>
-                <td><a id="<%= @calendar_days[count] %>" class="open-events" href="javascript:void(0)"><%= @calendar_days[count] %></a></td>
+                <td class="<%= @calendar_days_styles[count] %>"><a id="<%= @calendar_days[count] %>" class="open-events" href="javascript:void(0)"><%= @calendar_days[count] %></a></td>
                 <% count += 1 %>
                 <% if week_count == 7
                      week_count = 0 %>
@@ -54,7 +54,7 @@
         </table>
 
         <div id="create-event">
-          <%= link_to_prototype_dialog 'Create an event', 'share-review', 'confirm',
+          <%= link_to_prototype_dialog 'Create an event', 'save-update-event', 'confirm',
                                        {:className => "alphacube", :width => '450', :height => 'null'} %>
         </div>
       </td>
@@ -67,4 +67,4 @@
   </tbody>
 </table>
 
-<%= render 'create_event' %>
+<%= render 'shared/create_event', :event => @event %>

@@ -42,5 +42,23 @@ class CalendarsController < ApplicationController
     end
 
     @event = Event.new
+
+    i = @days_in_calendar_before
+    @calendar_days_styles = Array.new(@days_in_calendar_overall)
+    month = @month.to_s
+    count = 0
+    while count < last_day_of_month.day do
+      count += 1
+      event_count = Event.where("strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND strftime('%Y', date_event) = ?",
+                                       (count).to_s.size == 1 ? '0' + (count).to_s : (count).to_s,
+                                       month.size == 1 ? '0' + month : month,
+                                       @year.to_s).count()
+      if event_count > 0
+        @calendar_days_styles[i] = 'date_has_event'
+      else
+        @calendar_days_styles[i] = 'none'
+      end
+      i += 1
+    end
   end
 end
