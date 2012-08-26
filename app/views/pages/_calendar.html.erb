@@ -1,8 +1,10 @@
 <div id="calendar-div">
-  <a id="prev-month" href="javascript:void(0)">&lt</a>
-  <label id="<%= @month %>" class="month-label"><%= Date::MONTHNAMES[@month] %></label>
-  <label id="<%= @year %>" class="year-label"><%= @year %></label>
-  <a id="next-month" href="javascript:void(0)">&gt</a>
+  <div id="choose-month">
+    <span class="inline-span"><a id="prev-month" href="javascript:void(0)">&lt</a></span>
+    <span class="inline-span"><label id="<%= @month %>" class="month-label"><%= Date::MONTHNAMES[@month] %></label></span>
+    <span class="inline-span"><label id="<%= @year %>" class="year-label"><%= @year %></label></span>
+    <span class="inline-span"><a id="next-month" href="javascript:void(0)">&gt</a></span>
+  </div>
   <table id="calendar-table" cellspacing="0">
     <thead>
     <tr>

@@ -103,7 +103,6 @@ footer nav {
 }
 
 #create-event {
-    margin-top: 14px;
     text-align: right;
 }
 
@@ -113,7 +112,7 @@ footer nav {
     -webkit-border-radius: 5px;
     border-radius: 5px;
     font-size: 1.3em;
-    margin-bottom: 2em;
+    margin-bottom: 20px;
     padding: 0.8em;
 }
 
@@ -125,7 +124,6 @@ footer nav {
     margin-bottom: 1.6em;
     padding-top: 0.5em;
     line-height: 1em;
-    width: 370px;
 }
 
 .review-flash.errors {
@@ -231,7 +229,7 @@ nav
     min-height: 20px;
     /*padding: 19px;*/
     margin-bottom: 20px;
-    margin-top: 10px;
+    margin-top: 6px;
     background-color: #f5f5f5;
     border: 1px solid #e3e3e3;
     -webkit-border-radius: 4px;
@@ -258,10 +256,31 @@ nav
 }
 
 #calendar-td {
-    margin-bottom: 0px;
-    valign: "top";
+
 }
 
 section {
-    height: 542px;
+    height: 586px;
+}
+
+.alphacube_buttons {
+    display:none;
+}
+
+#choose-month {
+
+}
+
+.inline-span {
+    float: left;
+    padding-right: 10px;
+}
+
+.inline-span label {
+    font-size: 1em;
+}
+
+#event-error-messages {
+    margin: 0 15px;
+    text-align: left;
 }

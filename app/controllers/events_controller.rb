@@ -2,13 +2,19 @@ class EventsController < ApplicationController
   def index
     day = params[:day]
     month = params[:month]
-    year = params[:year]
-    date_time = DateTime.new(year.to_i, month.to_i, day.to_i)
-    @events = Event.where("strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND strftime('%Y', date_event) = ?",
-                          day.size == 1 ? '0' + day : day,
-                          month.size == 1 ? '0' + month : month,
-                          year)
-    @date = day + ' ' + Date::MONTHNAMES[month.to_i] + ' ' + year
+    y = params[:year]
+    d = day.size == 1 ? '0' + day : day
+    m = month.size == 1 ? '0' + month : month
+    c_d = DateTime.new(y.to_i, month.to_i, day.to_i)
+    w = c_d.wday.to_s
+    @events = Event.where("(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND strftime('%Y', date_event) = ?) OR " +
+                              "(repeat = 1 AND date_event < ?) OR " +
+                              "(strftime('%w', date_event) = ? AND repeat = 2 AND date_event < ?) OR" +
+                              "(strftime('%d', date_event) = ? AND repeat = 3 AND date_event < ?) OR" +
+                              "(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND repeat = 4 AND date_event < ?)",
+                          d, m, y, c_d, w, c_d, d, c_d, d, m, c_d)
+
+    @date = day + ' ' + Date::MONTHNAMES[month.to_i] + ' ' + y
     render :partial => 'shared/events'
   end
 

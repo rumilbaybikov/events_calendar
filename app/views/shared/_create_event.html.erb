@@ -1,28 +1,36 @@
 <div id="save-update-event<%= event.id.nil? ? "" : event.id %>">
-  <h2>Adding new event</h2>
-  <table class="review-table">
-    <tbody>
-    <tr>
-      <td align="center">
-        <div id="event-error-messages">
-          <%= render 'shared/error_messages', :event => event %>
-        </div>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+  <% if event.new_record? %>
+    <h2>Add new event</h2>
+  <% else %>
+    <h2>Edit event</h2>
+  <% end %>
+  <div id="event-error-messages">
+    <%= render 'shared/error_messages', :event => event %>
+  </div>
   <%= form_for event, :remote => true do |f| %>
-      <p>
-        <%= f.label :name %><br />
-        <%= f.text_field :name %>
-      </p>
-      <p>
-        <%= f.date_select :date_event %>
-      </p>
-      <p>
-        <%= f.select :repeat, options_for_select([["Do not repeat", "0"], ["Every day", "1"], ["Every week", "2"], ["Every month", "3"], ["Every year", "4"]], :selected => event.repeat) %>
-      </p>
-      <p><%= f.submit "Submit", :class => "review-button" %></p>
-      <input type="button" class="review-button" onclick="Dialog.cancelCallback()" value="Cancel">
+      <div class="control-group">
+        <%= f.label :name, :class => "control-label" %>
+        <div class="controls">
+          <%= f.text_field :name %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :date_event, :class => "control-label" %>
+        <div class="controls">
+          <%= f.date_select :date_event %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :repeat, :class => "control-label" %>
+        <div class="controls">
+          <%= f.select :repeat, options_for_select([["Do not repeat", "0"], ["Every day", "1"], ["Every week", "2"], ["Every month", "3"], ["Every year", "4"]], :selected => event.repeat) %>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <%= f.submit "Submit", :class => "btn" %>
+          <input type="button" class="btn" onclick="Dialog.cancelCallback()" value="Cancel">
+        </div>
+      </div>
   <% end %>
 </div>

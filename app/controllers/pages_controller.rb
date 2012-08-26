@@ -65,10 +65,17 @@ class PagesController < ApplicationController
       if current_month && count == now.day
         @calendar_days_styles[i] = 'today'
       else
-        event_count = Event.where("strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND strftime('%Y', date_event) = ?",
-                                  (count).to_s.size == 1 ? '0' + (count).to_s : (count).to_s,
-                                  month.size == 1 ? '0' + month : month,
-                                  @year.to_s).count()
+        d=(count).to_s.size == 1 ? '0' + (count).to_s : (count).to_s
+        m= month.size == 1 ? '0' + month : month
+        y= @year.to_s
+        c_d= DateTime.new(y.to_i, m.to_i, d.to_i)
+        w = c_d.wday.to_s
+        event_count = Event.where("(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND strftime('%Y', date_event) = ?) OR " +
+                                  "(repeat = 1 AND date_event < ?) OR " +
+                                  "(strftime('%w', date_event) = ? AND repeat = 2 AND date_event < ?) OR" +
+                                  "(strftime('%d', date_event) = ? AND repeat = 3 AND date_event < ?) OR" +
+                                  "(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND repeat = 4 AND date_event < ?)",
+                                  d, m, y, c_d, w, c_d, d, c_d, d, m, c_d).count()
         if event_count > 0
           @calendar_days_styles[i] = 'date_has_event'
         else
