@@ -19,6 +19,9 @@
       <p>
         <%= f.date_select :date_event %>
       </p>
+      <p>
+        <%= f.select :repeat, options_for_select([["Do not repeat", "0"], ["Every day", "1"], ["Every week", "2"], ["Every month", "3"], ["Every year", "4"]], :selected => event.repeat) %>
+      </p>
       <p><%= f.submit "Submit", :class => "review-button" %></p>
       <input type="button" class="review-button" onclick="Dialog.cancelCallback()" value="Cancel">
   <% end %>

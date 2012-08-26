@@ -17,11 +17,12 @@ class EventsController < ApplicationController
 
   def create
     @success_message = "created"
-    @event = Event.new
-    @event.name = params[:event][:name]
-    @event.date_event = DateTime.new(params[:event]['date_event(1i)'].to_i,
+    @event= Event.new
+    @event.name= params[:event][:name]
+    @event.date_event= DateTime.new(params[:event]['date_event(1i)'].to_i,
                                      params[:event]['date_event(2i)'].to_i,
                                      params[:event]['date_event(3i)'].to_i)
+    @event.repeat= params[:event][:repeat]
     @success = @event.save
     respond_to do |format|
       format.js
@@ -39,6 +40,7 @@ class EventsController < ApplicationController
     @event.date_event = DateTime.new(params[:event]['date_event(1i)'].to_i,
                                      params[:event]['date_event(2i)'].to_i,
                                      params[:event]['date_event(3i)'].to_i)
+    @event.repeat= params[:event][:repeat]
     @success = @event.save
     respond_to do |format|
       format.js
