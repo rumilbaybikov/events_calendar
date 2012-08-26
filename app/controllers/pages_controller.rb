@@ -3,6 +3,10 @@ class PagesController < ApplicationController
 
   def home
     date_time = DateTime.now
+    make_calendar(date_time)
+  end
+
+  def make_calendar(date_time)
     @day = date_time.day
     @year = date_time.year
     @month = date_time.month
@@ -48,9 +52,17 @@ class PagesController < ApplicationController
     @calendar_days_styles = Array.new(@days_in_calendar_overall)
     month = @month.to_s
     count = 0
+
+    now = DateTime.now
+
+    current_month = false
+    if @month == now.month && @year == now.year
+      current_month = true
+    end
+
     while count < last_day_of_month.day do
       count += 1
-      if count == @day
+      if current_month && count == now.day
         @calendar_days_styles[i] = 'today'
       else
         event_count = Event.where("strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND strftime('%Y', date_event) = ?",
@@ -65,5 +77,29 @@ class PagesController < ApplicationController
       end
       i += 1
     end
+  end
+
+  def dec_month
+    month = params[:month].to_i - 1
+    year = params[:year].to_i
+    if (month == 0)
+      month = 12
+      year -= 1
+    end
+    date_time = DateTime.new(year.to_i, month, 1)
+    make_calendar(date_time)
+    render :partial => 'calendar'
+  end
+
+  def inc_month
+    month = params[:month].to_i + 1
+    year = params[:year].to_i
+    if (month == 13)
+      month = 1
+      year += 1
+    end
+    date_time = DateTime.new(year, month, 1)
+    make_calendar(date_time)
+    render :partial => 'calendar'
   end
 end

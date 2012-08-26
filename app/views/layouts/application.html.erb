@@ -38,6 +38,38 @@
           });
         });
     });
+
+    $(function() {
+        $('a#prev-month').live("click", function() {
+            var month = $('.month-label').attr('id');
+            var year = $('.year-label').attr('id');
+            $.ajax({
+                dataType: "html",
+                data: {month: month, year: year},
+                url: "dec_month",
+                type: "POST",
+                success: (function(data) {
+                    $('div#calendar-div').html(data);
+                })
+            });
+        });
+    });
+
+    $(function() {
+        $('a#next-month').live("click", function() {
+            var month = $('.month-label').attr('id');
+            var year = $('.year-label').attr('id');
+            $.ajax({
+                dataType: "html",
+                data: {month: month, year: year},
+                url: "inc_month",
+                type: "POST",
+                success: (function(data) {
+                    $('div#calendar-div').html(data);
+                })
+            });
+        });
+    });
 </script>
 <div class="container">
   <%= render 'layouts/header' %>
