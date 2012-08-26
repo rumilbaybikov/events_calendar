@@ -1,2 +1,4 @@
 $("#event-error-messages").html("<%= escape_javascript(render('shared/error_messages', :event => @event)) %>");
+$('div.well').html("<%= escape_javascript(render('shared/events')) %>");
+$('div#calendar-div').html("<%= escape_javascript(render('shared/calendar')) %>");
 Windows.focusedWindow.updateHeight();

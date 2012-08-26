@@ -35,7 +35,7 @@ module PrototypeWindowClassHelper
         content_tag(
                "a class='btn btn-danger share-review-a'", name,
                html_options.merge({ 
-                 :href => html_options[:href] || "#", 
+                 :href => html_options[:href] || "javascript:void(0)",
                  :onclick => (html_options[:onclick] ? "#{html_options[:onclick]}; " : "") + js_code }))
     end
     
