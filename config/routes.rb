@@ -68,10 +68,10 @@ EventsCalendar::Application.routes.draw do
 
   match 'current_events', :to => 'events#index', :via => :post
 
-  match 'dec_month', :to => 'pages#dec_month', :via => :post
-  match 'inc_month', :to => 'pages#inc_month', :via => :post
+  match 'dec_month', :to => 'calendars#dec_month', :via => :post
+  match 'inc_month', :to => 'calendars#inc_month', :via => :post
 
-  devise_scope :user do
-    get "sign_in", :to => "devise/sessions#new"
-  end
+  match 'about', :to => 'pages#about'
+
+  devise_for :users
 end

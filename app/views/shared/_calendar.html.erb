@@ -1,9 +1,12 @@
 <div id="calendar-div">
   <div id="choose-month">
-    <span class="inline-span"><a id="prev-month" href="javascript:void(0)">&lt</a></span>
+    <span class="inline-span">
+        <a id="prev-month" href="javascript:void(0)">&lt</a>
+    </span>
     <span class="inline-span"><label id="<%= @month %>" class="month-label"><%= Date::MONTHNAMES[@month] %></label></span>
     <span class="inline-span"><label id="<%= @year %>" class="year-label"><%= @year %></label></span>
-    <span class="inline-span"><a id="next-month" href="javascript:void(0)">&gt</a></span>
+    <span class="inline-span">
+      <a id="next-month" href="javascript:void(0)">&gt</a></span>
   </div>
   <table id="calendar-table" cellspacing="0">
     <thead>
@@ -30,7 +33,9 @@
          while count < @days_in_calendar do
            week_count += 1
       %>
-          <td class="<%= @calendar_days_styles[count] %>"><a id="<%= @calendar_days[count] %>" class="open-events" href="javascript:void(0)"><%= @calendar_days[count] %></a></td>
+          <td class="<%= @calendar_days_styles[count] %>">
+            <a id="<%= @calendar_days[count] %>" class="open-events" href="javascript:void(0)"><%= @calendar_days[count] %></a>
+          </td>
           <% count += 1 %>
           <% if week_count == 7
                week_count = 0 %>

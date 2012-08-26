@@ -1,3 +1,4 @@
+<legend>Event calendar</legend>
 <table>
   <tbody>
   <tr>
@@ -6,8 +7,12 @@
     </td>
     <td valign="top">
       <div id="create-event">
-        <%= link_to_prototype_dialog 'Create an event', 'save-update-event', 'confirm',
-                                     {:className => "alphacube", :width => '450', :height => 'null'} %>
+        <% unless user_signed_in? %>
+          <a class='fb_login_button btn btn-danger' href="javascript:void(0)">Create an event</a>
+        <% else %>
+          <%= link_to_prototype_dialog 'Create an event', 'save-update-event', 'confirm',
+                                       {:className => "alphacube", :width => '450', :height => 'null'} %>
+        <% end %>
       </div>
       <div class="well" style="max-width: 340px; padding: 8px 0;">
         <%= render 'shared/events' %>
