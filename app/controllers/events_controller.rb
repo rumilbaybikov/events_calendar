@@ -1,23 +1,25 @@
 class EventsController < ApplicationController
   @@selected_date = nil
+  @@my_events = false
+  @@curr_user = nil
 
   def index
-    day = params[:day]
+    @day = params[:day]
     month = params[:month]
     y = params[:year]
-    d = day.size == 1 ? '0' + day : day
+    d = @day.size == 1 ? '0' + @day : @day
     m = month.size == 1 ? '0' + month : month
-    c_d = DateTime.new(y.to_i, month.to_i, day.to_i)
+    c_d = DateTime.new(y.to_i, month.to_i, @day.to_i)
     @@selected_date = c_d
     w = c_d.wday.to_s
     @events = Event.where("(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND strftime('%Y', date_event) = ?) OR " +
-                              "(repeat = 1 AND date_event < ?) OR " +
-                              "(strftime('%w', date_event) = ? AND repeat = 2 AND date_event < ?) OR" +
-                              "(strftime('%d', date_event) = ? AND repeat = 3 AND date_event < ?) OR" +
-                              "(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND repeat = 4 AND date_event < ?)",
+                          "(repeat = 1 AND date_event < ?) OR " +
+                          "(strftime('%w', date_event) = ? AND repeat = 2 AND date_event < ?) OR" +
+                          "(strftime('%d', date_event) = ? AND repeat = 3 AND date_event < ?) OR" +
+                          "(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND repeat = 4 AND date_event < ?)",
                           d, m, y, c_d, w, c_d, d, c_d, d, m, c_d)
 
-    @date = day + ' ' + Date::MONTHNAMES[month.to_i] + ' ' + y
+    @date = @day + ' ' + Date::MONTHNAMES[month.to_i] + ' ' + y
     render :partial => 'shared/events'
   end
 
@@ -31,6 +33,7 @@ class EventsController < ApplicationController
     @event.date_event= DateTime.new(params[:event]['date_event(1i)'].to_i,
                                      params[:event]['date_event(2i)'].to_i,
                                      params[:event]['date_event(3i)'].to_i)
+    @event.user=current_user
     @event.repeat= params[:event][:repeat]
     @success = @event.save
 
@@ -120,5 +123,21 @@ class EventsController < ApplicationController
 
   def self.selected_date=(date)
     @@selected_date=date
+  end
+
+  def self.my_events
+    @@my_events
+  end
+
+  def self.my_events=(bool)
+    @@my_events=bool
+  end
+
+  def self.curr_user
+    @@curr_user
+  end
+
+  def self.curr_user=(user)
+    @@curr_user = user
   end
 end

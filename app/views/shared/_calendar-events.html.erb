@@ -1,0 +1,20 @@
+<div id="calendar-event-div">
+  <table>
+    <tbody>
+    <tr>
+      <td id="calendar-td" valign="top">
+        <%= render 'shared/calendar' %>
+      </td>
+      <td valign="top">
+        <div id="create-event">
+          <%= link_to_prototype_dialog 'Create an event', 'save-update-event', 'confirm',
+                                       {:className => "alphacube", :width => '450', :height => 'null'} %>
+        </div>
+        <div class="well" style="max-width: 340px; padding: 8px 0;">
+          <%= render 'shared/events' %>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

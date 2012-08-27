@@ -70,6 +70,41 @@
             });
         });
     });
+
+    $(function() {
+        $('#all-events-radio').live("change", function() {
+            var month = $('.month-label').attr('id');
+            var year = $('.year-label').attr('id');
+            var selected_day_event = $('#selected-day-event').attr('value');
+            $.ajax({
+                dataType: "html",
+                data: {month: month, year: year, selected_day_event: selected_day_event},
+                url: "all_events",
+                type: "POST",
+                success: (function(data) {
+                    $('div#calendar-event-div').html(data);
+                })
+            });
+        });
+    });
+
+    $(function() {
+        $('#my-events-radio').live("change", function() {
+            var month = $('.month-label').attr('id');
+            var year = $('.year-label').attr('id');
+            var current_user_id = $('#current-user-id').attr('value');
+            var selected_day_event = $('#selected-day-event').attr('value');
+            $.ajax({
+                dataType: "html",
+                data: {current_user_id: current_user_id, month: month, year: year, selected_day_event: selected_day_event},
+                url: "my_events",
+                type: "POST",
+                success: (function(data) {
+                    $('div#calendar-event-div').html(data);
+                })
+            });
+        });
+    });
 </script>
 <div class="container">
   <%= render 'layouts/header' %>

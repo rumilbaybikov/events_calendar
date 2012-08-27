@@ -1,5 +1,6 @@
 <ul class="nav nav-list">
   <li class="nav-header">Events <%= @date.nil? ? "" : "on " + @date %></li>
+  <input type="hidden" id="selected-day-event" value="<%= @day.nil? ? '' : @day %>" />
   <% if @events.nil? %>
     <li>Choose the date</li>
   <% else %>

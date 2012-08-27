@@ -1887,7 +1887,6 @@ a:hover {
 }
 
 [class*="span"] {
-  float: left;
   margin-left: 20px;
 }
 

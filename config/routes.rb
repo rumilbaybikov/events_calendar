@@ -3,8 +3,6 @@ EventsCalendar::Application.routes.draw do
 
   root :to => "pages#home"
 
-  devise_for :users
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -62,8 +60,6 @@ EventsCalendar::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 
-  resources :users, :only => [:index, :show]
-
   resources :events
 
   match 'current_events', :to => 'events#index', :via => :post
@@ -71,7 +67,10 @@ EventsCalendar::Application.routes.draw do
   match 'dec_month', :to => 'calendars#dec_month', :via => :post
   match 'inc_month', :to => 'calendars#inc_month', :via => :post
 
-  match 'about', :to => 'pages#about'
+  match 'about', :to => 'calendars#about'
+
+  match 'my_events', :to => 'calendars#my_events', :via => :post
+  match 'all_events', :to => 'calendars#all_events', :via => :post
 
   devise_for :users
 end

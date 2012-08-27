@@ -1,12 +1,6 @@
 class PagesController < ApplicationController
   before_filter :authenticate_user!
 
-  require 'date'
-
-  def about
-
-  end
-
   def home
     date_time = DateTime.now
     Event.make_calendar(date_time)

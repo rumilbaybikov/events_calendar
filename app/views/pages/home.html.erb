@@ -1,25 +1,10 @@
-<legend>Event calendar</legend>
-<table>
-  <tbody>
-  <tr>
-    <td id="calendar-td" valign="top">
-      <%= render 'shared/calendar' %>
-    </td>
-    <td valign="top">
-      <div id="create-event">
-        <% unless user_signed_in? %>
-          <a class='fb_login_button btn btn-danger' href="javascript:void(0)">Create an event</a>
-        <% else %>
-          <%= link_to_prototype_dialog 'Create an event', 'save-update-event', 'confirm',
-                                       {:className => "alphacube", :width => '450', :height => 'null'} %>
-        <% end %>
-      </div>
-      <div class="well" style="max-width: 340px; padding: 8px 0;">
-        <%= render 'shared/events' %>
-      </div>
-    </td>
-  </tr>
-  </tbody>
-</table>
+<legend>Events calendar</legend>
+<div id="radio-buttons">
+  <span class="inline-span"><input id="all-events-radio" type="radio" name="event-radio-select" value="rad1" checked="checked">&nbsp;All events</span>
+  <span class="inline-span"><input id="my-events-radio" type="radio" name="event-radio-select" value="rad2">&nbsp;My events</span>
+  <input id="current-user-id" type="hidden" value=<%= current_user.id %> />
+</div>
+
+<%= render 'shared/calendar-events' %>
 
 <%= render 'shared/create_event', :event => @event %>

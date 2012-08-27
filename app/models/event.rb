@@ -58,6 +58,11 @@ class Event < ActiveRecord::Base
       current_month = true
     end
 
+    current_user_events_opt = ''
+    if EventsController.my_events
+      current_user_events_opt = 'user_id = ' + EventsController.curr_user.to_s
+    end
+
     while count < last_day_of_month.day do
       count += 1
       if current_month && count == now.day
@@ -69,11 +74,11 @@ class Event < ActiveRecord::Base
         c_d= DateTime.new(y.to_i, m.to_i, d.to_i)
         w = c_d.wday.to_s
         event_count = where("(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND strftime('%Y', date_event) = ?) OR " +
-                                      "(repeat = 1 AND date_event < ?) OR " +
-                                      "(strftime('%w', date_event) = ? AND repeat = 2 AND date_event < ?) OR" +
-                                      "(strftime('%d', date_event) = ? AND repeat = 3 AND date_event < ?) OR" +
-                                      "(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND repeat = 4 AND date_event < ?)",
-                                  d, m, y, c_d, w, c_d, d, c_d, d, m, c_d).count()
+                            "(repeat = 1 AND date_event < ?) OR " +
+                            "(strftime('%w', date_event) = ? AND repeat = 2 AND date_event < ?) OR" +
+                            "(strftime('%d', date_event) = ? AND repeat = 3 AND date_event < ?) OR" +
+                            "(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND repeat = 4 AND date_event < ?)",
+                            d, m, y, c_d, w, c_d, d, c_d, d, m, c_d).where(current_user_events_opt).count()
         if event_count > 0
           @@calendar_days_styles[i] = 'date_has_event'
         else

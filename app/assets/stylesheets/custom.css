@@ -17,6 +17,7 @@ header img {
 section {
     margin-top: 1em;
     font-size: 120%;
+    height: 673px;
     padding: 20px;
     background: #fff;
 }
@@ -259,10 +260,6 @@ nav
 
 }
 
-section {
-    height: 586px;
-}
-
 .alphacube_buttons {
     display:none;
 }
@@ -272,7 +269,7 @@ section {
 }
 
 .inline-span {
-    float: left;
+    /*float: left;*/
     padding-right: 10px;
 }
 
@@ -332,4 +329,11 @@ section {
 
 #contactArea {
     text-align:center;
+}
+
+/* radio-buttons */
+#radio-buttons {
+    margin-left: 292px;
+    margin-right: 292px;
+    text-align: center;
 }
