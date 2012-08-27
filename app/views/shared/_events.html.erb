@@ -10,8 +10,12 @@
         <div class="hidden-event">
           <%= render 'shared/create_event', :event => event %>
         </div>
-        <li><%= link_to_prototype_dialog event.name, 'save-update-event' + event.id.to_s, '', 'confirm',
-                                         {:className => "alphacube", :width => '450', :height => 'null'} %></li>
+        <% unless event.user.eql?(current_user) %>
+          <li><%= event.name %></li>
+        <% else %>
+          <li><%= link_to_prototype_dialog event.name, 'save-update-event' + event.id.to_s, '', 'confirm',
+                                           {:className => "alphacube", :width => '450', :height => 'null'} %></li>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>

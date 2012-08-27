@@ -51,6 +51,8 @@ class EventsController < ApplicationController
 
   def create
     @success_message = "created"
+
+    @event = Event.new
     @event.name = params[:event][:name]
     @event.date_event = DateTime.new(params[:event]['date_event(1i)'].to_i,
                                      params[:event]['date_event(2i)'].to_i,
