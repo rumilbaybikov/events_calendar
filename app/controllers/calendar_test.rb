@@ -17,12 +17,12 @@ class MyTest < Test::Unit::TestCase
 
   # Fake test
   def test_fail
-    eventsCalendar = EventsController.new
+    eventsCalendar = EventsControllerTest.new
     assert_equal(eventsCalendar.testCalendar(), '33', "test days in calendar")
   end
 end
 
-class EventsController
+class EventsControllerTest
   def testCalendar
     first_day_of_month = Time.new.at_beginning_of_month
     last_day_of_month = Time.now.at_end_of_month
