@@ -337,3 +337,9 @@ nav
     margin-right: 292px;
     text-align: center;
 }
+
+/* image photo */
+.image_photo {
+    float:left;
+    margin-right: 20px;
+}

@@ -72,5 +72,7 @@ EventsCalendar::Application.routes.draw do
   match 'my_events', :to => 'calendars#my_events', :via => :post
   match 'all_events', :to => 'calendars#all_events', :via => :post
 
+  match 'user_edit', :to => 'users#edit'
+
   devise_for :users
 end

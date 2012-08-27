@@ -29,6 +29,7 @@
           var year = $('.year-label').attr('id');
           $.ajax({
             dataType: "html",
+            beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
             data: {day: day, month: month, year: year},
             url: "current_events",
             type: "POST",
@@ -45,6 +46,7 @@
             var year = $('.year-label').attr('id');
             $.ajax({
                 dataType: "html",
+                beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
                 data: {month: month, year: year},
                 url: "dec_month",
                 type: "POST",
@@ -61,6 +63,7 @@
             var year = $('.year-label').attr('id');
             $.ajax({
                 dataType: "html",
+                beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
                 data: {month: month, year: year},
                 url: "inc_month",
                 type: "POST",
@@ -78,6 +81,7 @@
             var selected_day_event = $('#selected-day-event').attr('value');
             $.ajax({
                 dataType: "html",
+                beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
                 data: {month: month, year: year, selected_day_event: selected_day_event},
                 url: "all_events",
                 type: "POST",

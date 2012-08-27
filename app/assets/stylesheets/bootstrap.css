@@ -1482,23 +1482,30 @@ input.search-query {
 .form-search input,
 .form-inline input,
 .new_user input,
+.edit_user input
 .form-search textarea,
 .form-inline textarea,
 .new_user textarea,
+.edit_user textarea,
 .form-search select,
 .form-inline select,
 .new_user select,
+.edit_user textarea,
 .form-search .help-inline,
 .form-inline .help-inline,
 .new_user .help-inline,
+.edit_user .help-inline,
 .form-search .uneditable-input,
 .form-inline .uneditable-input,
 .new_user .uneditable-input,
+.edit_user .uneditable-input,
 .form-search .input-prepend,
 .form-inline .input-prepend,
 .new_user .input-prepend,
+.edit_user .input-prepend,
 .form-search .input-append,
 .form-inline .input-append,
+.edit_user .input-append
 .new_user .input-append {
     display: inline-block;
     *display: inline;
@@ -1599,11 +1606,20 @@ legend + .control-group {
     -webkit-margin-top-collapse: separate;
 }
 
+.edit_user .control-group,
+.edit_event .control-group,
+.new_event .control-group,
 .new_user .control-group {
     margin-bottom: 20px;
     *zoom: 1;
 }
 
+.edit_user .control-group:before,
+.edit_user .control-group:after,
+.edit_event .control-group:before,
+.edit_event .control-group:after,
+.new_event .control-group:before,
+.new_event .control-group:after,
 .new_user .control-group:before,
 .new_user .control-group:after {
     display: table;
@@ -1611,10 +1627,16 @@ legend + .control-group {
     content: "";
 }
 
+.edit_user .control-group:after,
+.edit_event .control-group:after,
+.new_event .control-group:after,
 .new_user .control-group:after {
     clear: both;
 }
 
+.edit_user .control-label,
+.edit_event .control-label,
+.new_event .control-label,
 .new_user .control-label {
     float: left;
     width: 150px;
@@ -1622,6 +1644,9 @@ legend + .control-group {
     text-align: right;
 }
 
+.edit_user .controls,
+.edit_event .controls,
+.new_event .controls,
 .new_user .controls {
     *display: inline-block;
     *padding-left: 20px;
@@ -1629,106 +1654,29 @@ legend + .control-group {
     *margin-left: 0;
 }
 
+.edit_user .controls:first-child,
+.edit_event .controls:first-child,
+.new_event .controls:first-child,
 .new_user .controls:first-child {
     *padding-left: 160px;
 }
 
+.edit_user .help-block,
+.edit_event .help-block,
+.new_event .help-block,
 .new_user .help-block {
     margin-top: 10px;
     margin-bottom: 0;
 }
 
+.edit_user .form-actions,
+.edit_event .form-actions,
+.new_event .form-actions,
 .new_user .form-actions {
     padding-left: 160px;
 }
 
-.new_event .control-group {
-    margin-bottom: 20px;
-    *zoom: 1;
-}
-
-.new_event .control-group:before,
-.new_event .control-group:after {
-    display: table;
-    line-height: 0;
-    content: "";
-}
-
-.new_event .control-group:after {
-    clear: both;
-}
-
-.new_event .control-label {
-    float: left;
-    width: 140px;
-    padding-top: 5px;
-    text-align: right;
-}
-
-.new_event .controls {
-    *display: inline-block;
-    *padding-left: 20px;
-    margin-left: 160px;
-    *margin-left: 0;
-}
-
-.new_event .controls:first-child {
-    *padding-left: 160px;
-}
-
-.new_event .help-block {
-    margin-top: 10px;
-    margin-bottom: 0;
-}
-
-.new_event .form-actions {
-    padding-left: 160px;
-}
-
-.edit_event .control-group {
-    margin-bottom: 20px;
-    *zoom: 1;
-}
-
-.edit_event .control-group:before,
-.edit_event .control-group:after {
-    display: table;
-    line-height: 0;
-    content: "";
-}
-
-.edit_event .control-group:after {
-    clear: both;
-}
-
-.edit_event .control-label {
-    float: left;
-    width: 140px;
-    padding-top: 5px;
-    text-align: right;
-}
-
-.edit_event .controls {
-    *display: inline-block;
-    *padding-left: 20px;
-    margin-left: 160px;
-    *margin-left: 0;
-}
-
-.edit_event .controls:first-child {
-    *padding-left: 160px;
-}
-
-.edit_event .help-block {
-    margin-top: 10px;
-    margin-bottom: 0;
-}
-
-.edit_event .form-actions {
-    padding-left: 160px;
-}
-
-.edit_event, .new_event {
+.edit_user, .edit_event, .new_event {
     text-align: left;
 }
 
