@@ -6,6 +6,13 @@ class Event < ActiveRecord::Base
   validates :name, :presence => true
   validates :date_event, :presence => true
 
+  @@selected_date = nil
+  @@my_events = false
+  @@current_user = nil
+  @@day = nil
+  @@date = nil
+  @@events = nil
+
   def self.make_calendar(date_time)
     @@day = date_time.day
     @@year = date_time.year
@@ -59,8 +66,8 @@ class Event < ActiveRecord::Base
     end
 
     current_user_events_opt = ''
-    if EventsController.my_events
-      current_user_events_opt = 'user_id = ' + EventsController.curr_user.to_s
+    if Event.my_events
+      current_user_events_opt = 'user_id = ' + @@current_user.id.to_s
     end
 
     while count < last_day_of_month.day do
@@ -111,5 +118,64 @@ class Event < ActiveRecord::Base
 
   def self.days_in_calendar
     @@days_in_calendar
+  end
+
+  def self.selected_date
+    @@selected_date
+  end
+
+  def self.selected_date=(date)
+    @@selected_date=date
+  end
+
+  def self.current_user=(user)
+    @@current_user = user
+  end
+
+  def self.my_events
+    @@my_events
+  end
+
+  def self.my_events=(bool)
+    @@my_events=bool
+  end
+
+  def self.day
+    @@day
+  end
+
+  def self.events
+    @@events
+  end
+
+  def self.date
+    @@date
+  end
+
+  def self.make_events
+    if @@selected_date.nil?
+      @date = nil
+    else
+      c_d = @@selected_date
+      @@day = c_d.day.to_s
+      d = day.size == 1 ? '0' + day : day
+      w = c_d.wday.to_s
+      month = c_d.month.to_s
+      m = month.size == 1 ? '0' + month : month
+      y = c_d.year.to_s
+
+      if @@my_events
+        current_user_events_opt = 'user_id = ' + @@current_user.id.to_s
+      end
+
+      @@events = Event.where("(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND strftime('%Y', date_event) = ?) OR " +
+                                "(repeat = 1 AND date_event < ?) OR " +
+                                "(strftime('%w', date_event) = ? AND repeat = 2 AND date_event < ?) OR" +
+                                "(strftime('%d', date_event) = ? AND repeat = 3 AND date_event < ?) OR" +
+                                "(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND repeat = 4 AND date_event < ?)",
+                            d, m, y, c_d, w, c_d, d, c_d, d, m, c_d).where(current_user_events_opt)
+
+      @@date = day + ' ' + Date::MONTHNAMES[month.to_i] + ' ' + y
+    end
   end
 end

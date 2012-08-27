@@ -1,7 +1,5 @@
 EventsCalendar::Application.routes.draw do
-  get 'events/create'
-
-  root :to => "calendars#home"
+  root :to => "events#home"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -60,12 +58,12 @@ EventsCalendar::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 
-  resources :events
+  resources :events, :only => [:create, :update]
 
   match 'current_events', :to => 'events#index', :via => :post
 
-  match 'dec_month', :to => 'calendars#dec_month', :via => :post
-  match 'inc_month', :to => 'calendars#inc_month', :via => :post
+  match 'dec_month', :to => 'events#dec_month', :via => :post
+  match 'inc_month', :to => 'events#inc_month', :via => :post
 
   match 'about', :to => 'pages#about'
 
