@@ -1,7 +1,7 @@
 EventsCalendar::Application.routes.draw do
   get 'events/create'
 
-  root :to => "pages#home"
+  root :to => "calendars#home"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -67,10 +67,10 @@ EventsCalendar::Application.routes.draw do
   match 'dec_month', :to => 'calendars#dec_month', :via => :post
   match 'inc_month', :to => 'calendars#inc_month', :via => :post
 
-  match 'about', :to => 'calendars#about'
+  match 'about', :to => 'pages#about'
 
-  match 'my_events', :to => 'calendars#my_events', :via => :post
-  match 'all_events', :to => 'calendars#all_events', :via => :post
+  match 'my_events', :to => 'events#my_events', :via => :post
+  match 'all_events', :to => 'events#all_events', :via => :post
 
   match 'user_edit', :to => 'users#edit'
 

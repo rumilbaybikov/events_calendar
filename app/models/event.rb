@@ -20,7 +20,7 @@ class Event < ActiveRecord::Base
       @@days_in_calendar_before = day_of_week - 1
     end
     @@days_in_calendar = @@days_in_calendar_before + last_day_of_month.day
-    @@days_in_calendar_after = 7 -(@@days_in_calendar - (@@days_in_calendar/7)*7)
+    @@days_in_calendar_after = 7 -(@@days_in_calendar - (@@days_in_calendar / 7) * 7)
 
     @@days_in_calendar_overall = @@days_in_calendar + @@days_in_calendar_after
 
@@ -68,10 +68,10 @@ class Event < ActiveRecord::Base
       if current_month && count == now.day
         @@calendar_days_styles[i] = 'today'
       else
-        d=(count).to_s.size == 1 ? '0' + (count).to_s : (count).to_s
-        m= month.size == 1 ? '0' + month : month
-        y= @@year.to_s
-        c_d= DateTime.new(y.to_i, m.to_i, d.to_i)
+        d =(count).to_s.size == 1 ? '0' + (count).to_s : (count).to_s
+        m = month.size == 1 ? '0' + month : month
+        y = @@year.to_s
+        c_d = DateTime.new(y.to_i, m.to_i, d.to_i)
         w = c_d.wday.to_s
         event_count = where("(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND strftime('%Y', date_event) = ?) OR " +
                             "(repeat = 1 AND date_event < ?) OR " +

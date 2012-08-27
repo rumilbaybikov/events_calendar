@@ -1476,7 +1476,7 @@ input.search-query {
 .new_user {
     width: 420px;
     margin-left: 194px;
-    margin-top: 140px;
+    margin-top: 185px;
 }
 
 .form-search input,
@@ -1518,12 +1518,6 @@ input.search-query {
 .form-inline .hide,
 .new_user .hide {
     display: none;
-}
-
-.new_user {
-    width: 420px;
-    margin-left: 194px;
-    margin-top: 140px;
 }
 
 .form-search input,

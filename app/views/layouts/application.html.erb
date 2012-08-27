@@ -22,6 +22,12 @@
 </head>
 <body>
 <script type="text/javascript">
+    $.ajaxSetup({
+        'beforeSend':function (xhr) {
+            xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+        }
+    });
+
     $(function() {
         $('a.open-events').live("click", function() {
           var day = $(this).attr('id');
@@ -29,7 +35,6 @@
           var year = $('.year-label').attr('id');
           $.ajax({
             dataType: "html",
-            beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
             data: {day: day, month: month, year: year},
             url: "current_events",
             type: "POST",
@@ -46,7 +51,6 @@
             var year = $('.year-label').attr('id');
             $.ajax({
                 dataType: "html",
-                beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
                 data: {month: month, year: year},
                 url: "dec_month",
                 type: "POST",
@@ -63,7 +67,6 @@
             var year = $('.year-label').attr('id');
             $.ajax({
                 dataType: "html",
-                beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
                 data: {month: month, year: year},
                 url: "inc_month",
                 type: "POST",
@@ -78,11 +81,9 @@
         $('#all-events-radio').live("change", function() {
             var month = $('.month-label').attr('id');
             var year = $('.year-label').attr('id');
-            var selected_day_event = $('#selected-day-event').attr('value');
             $.ajax({
                 dataType: "html",
-                beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-                data: {month: month, year: year, selected_day_event: selected_day_event},
+                data: {month: month, year: year},
                 url: "all_events",
                 type: "POST",
                 success: (function(data) {
@@ -96,11 +97,9 @@
         $('#my-events-radio').live("change", function() {
             var month = $('.month-label').attr('id');
             var year = $('.year-label').attr('id');
-            var current_user_id = $('#current-user-id').attr('value');
-            var selected_day_event = $('#selected-day-event').attr('value');
             $.ajax({
                 dataType: "html",
-                data: {current_user_id: current_user_id, month: month, year: year, selected_day_event: selected_day_event},
+                data: {month: month, year: year},
                 url: "my_events",
                 type: "POST",
                 success: (function(data) {

@@ -1,7 +1,43 @@
 class EventsController < ApplicationController
+  before_filter :authenticate_user!
+
   @@selected_date = nil
   @@my_events = false
-  @@curr_user = nil
+
+  def home
+    date_time = DateTime.now
+    make_calendar(date_time)
+  end
+
+  def dec_month
+    month = params[:month].to_i - 1
+    year = params[:year].to_i
+    if (month == 0)
+      month = 12
+      year -= 1
+    end
+    date_time = DateTime.new(year.to_i, month, 1)
+    make_calendar(date_time)
+
+    EventsController.selected_date=nil
+
+    render :partial => 'shared/calendar'
+  end
+
+  def inc_month
+    month = params[:month].to_i + 1
+    year = params[:year].to_i
+    if (month == 13)
+      month = 1
+      year += 1
+    end
+    date_time = DateTime.new(year, month, 1)
+    make_calendar(date_time)
+
+    EventsController.selected_date=nil
+
+    render :partial => 'shared/calendar'
+  end
 
   def index
     @day = params[:day]
@@ -12,69 +48,42 @@ class EventsController < ApplicationController
     c_d = DateTime.new(y.to_i, month.to_i, @day.to_i)
     @@selected_date = c_d
     w = c_d.wday.to_s
+    current_user_events_opt = ''
+    if @@my_events
+      current_user_events_opt = 'user_id = ' + current_user.id.to_s
+    end
     @events = Event.where("(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND strftime('%Y', date_event) = ?) OR " +
                           "(repeat = 1 AND date_event < ?) OR " +
                           "(strftime('%w', date_event) = ? AND repeat = 2 AND date_event < ?) OR" +
                           "(strftime('%d', date_event) = ? AND repeat = 3 AND date_event < ?) OR" +
                           "(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND repeat = 4 AND date_event < ?)",
-                          d, m, y, c_d, w, c_d, d, c_d, d, m, c_d)
+                          d, m, y, c_d, w, c_d, d, c_d, d, m, c_d).where(current_user_events_opt)
 
     @date = @day + ' ' + Date::MONTHNAMES[month.to_i] + ' ' + y
     render :partial => 'shared/events'
   end
 
-  def show
-  end
-
   def create
     @success_message = "created"
-    @event= Event.new
-    @event.name= params[:event][:name]
-    @event.date_event= DateTime.new(params[:event]['date_event(1i)'].to_i,
+    @event.name = params[:event][:name]
+    @event.date_event = DateTime.new(params[:event]['date_event(1i)'].to_i,
                                      params[:event]['date_event(2i)'].to_i,
                                      params[:event]['date_event(3i)'].to_i)
-    @event.user=current_user
-    @event.repeat= params[:event][:repeat]
+    @event.user =current_user
+    @event.repeat = params[:event][:repeat]
     @success = @event.save
 
-    c_d = @@selected_date
-    unless c_d.nil?
-      day = c_d.day.to_s
-      d = day.size == 1 ? '0' + day : day
-      w = c_d.wday.to_s
-      month = c_d.month.to_s
-      m = month.size == 1 ? '0' + month : month
-      y = c_d.year.to_s
+    make_events()
 
-      @events = Event.where("(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND strftime('%Y', date_event) = ?) OR " +
-                                "(repeat = 1 AND date_event < ?) OR " +
-                                "(strftime('%w', date_event) = ? AND repeat = 2 AND date_event < ?) OR" +
-                                "(strftime('%d', date_event) = ? AND repeat = 3 AND date_event < ?) OR" +
-                                "(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND repeat = 4 AND date_event < ?)",
-                            d, m, y, c_d, w, c_d, d, c_d, d, m, c_d)
-
-      @date = day + ' ' + Date::MONTHNAMES[month.to_i] + ' ' + y
+    if @@selected_date.nil?
+      make_calendar(DateTime.now)
+    else
+      make_calendar(@@selected_date)
     end
-
-    if c_d.nil?
-      c_d = DateTime.now
-      @date = nil
-    end
-
-    Event.make_calendar(c_d)
-    @month= Event.month
-    @year= Event.year
-    @days_in_calendar_before= Event.days_in_calendar_before
-    @calendar_days= Event.calendar_days
-    @days_in_calendar= Event.days_in_calendar
-    @calendar_days_styles= Event.calendar_days_styles
 
     respond_to do |format|
       format.js
     end
-  end
-
-  def edit
   end
 
   def update
@@ -88,37 +97,53 @@ class EventsController < ApplicationController
     @event.repeat= params[:event][:repeat]
     @success = @event.save
 
-    c_d = @@selected_date
-    day = c_d.day.to_s
-    d = day.size == 1 ? '0' + day : day
-    w = c_d.wday.to_s
-    month = c_d.month.to_s
-    m = month.size == 1 ? '0' + month : month
-    y = c_d.year.to_s
+    make_events()
 
-    @events = Event.where("(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND strftime('%Y', date_event) = ?) OR " +
-                              "(repeat = 1 AND date_event < ?) OR " +
-                              "(strftime('%w', date_event) = ? AND repeat = 2 AND date_event < ?) OR" +
-                              "(strftime('%d', date_event) = ? AND repeat = 3 AND date_event < ?) OR" +
-                              "(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND repeat = 4 AND date_event < ?)",
-                          d, m, y, c_d, w, c_d, d, c_d, d, m, c_d)
-
-    Event.make_calendar(c_d)
-    @month= Event.month
-    @year= Event.year
-    @days_in_calendar_before= Event.days_in_calendar_before
-    @calendar_days= Event.calendar_days
-    @days_in_calendar= Event.days_in_calendar
-    @calendar_days_styles= Event.calendar_days_styles
-
-    @date = day + ' ' + Date::MONTHNAMES[month.to_i] + ' ' + y
+    make_calendar(@@selected_date)
 
     respond_to do |format|
       format.js
     end
   end
 
-  def destroy
+  def my_events
+    if @@selected_date.nil?
+      @day = '1'
+      month = params[:month]
+      year = params[:year]
+      date_time = DateTime.new(year.to_i, month.to_i, @day.to_i)
+    else
+      @day = params[:selected_day_event]
+      date_time = @@selected_date
+    end
+
+    EventsController.my_events =true
+
+    make_calendar(date_time)
+
+    make_events()
+
+    render :partial => 'shared/calendar-events'
+  end
+
+  def all_events
+    if @@selected_date.nil?
+      @day = '1'
+      month = params[:month]
+      year = params[:year]
+      date_time = DateTime.new(year.to_i, month.to_i, @day.to_i)
+    else
+      @day = params[:selected_day_event]
+      date_time = @@selected_date
+    end
+
+    EventsController.my_events=false
+
+    make_calendar(date_time)
+
+    make_events()
+
+    render :partial => 'shared/calendar-events'
   end
 
   def self.selected_date=(date)
@@ -133,11 +158,44 @@ class EventsController < ApplicationController
     @@my_events=bool
   end
 
-  def self.curr_user
-    @@curr_user
+  private
+
+  def make_calendar(date_time)
+    Event.make_calendar(date_time)
+    @month= Event.month
+    @year= Event.year
+    @days_in_calendar_before= Event.days_in_calendar_before
+    @calendar_days= Event.calendar_days
+    @days_in_calendar= Event.days_in_calendar
+    @calendar_days_styles= Event.calendar_days_styles
+
+    @event = Event.new
   end
 
-  def self.curr_user=(user)
-    @@curr_user = user
+  def make_events
+    if @@selected_date.nil?
+      @date = nil
+    else
+      c_d = @@selected_date
+      @day = c_d.day.to_s
+      d = day.size == 1 ? '0' + day : day
+      w = c_d.wday.to_s
+      month = c_d.month.to_s
+      m = month.size == 1 ? '0' + month : month
+      y = c_d.year.to_s
+
+      if @@my_events
+        current_user_events_opt = 'user_id = ' + current_user.id.to_s
+      end
+
+      @events = Event.where("(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND strftime('%Y', date_event) = ?) OR " +
+                            "(repeat = 1 AND date_event < ?) OR " +
+                            "(strftime('%w', date_event) = ? AND repeat = 2 AND date_event < ?) OR" +
+                            "(strftime('%d', date_event) = ? AND repeat = 3 AND date_event < ?) OR" +
+                            "(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND repeat = 4 AND date_event < ?)",
+                            d, m, y, c_d, w, c_d, d, c_d, d, m, c_d).where(current_user_events_opt)
+
+      @date = day + ' ' + Date::MONTHNAMES[month.to_i] + ' ' + y
+    end
   end
 end

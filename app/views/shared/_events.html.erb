@@ -1,6 +1,5 @@
 <ul class="nav nav-list">
   <li class="nav-header">Events <%= @date.nil? ? "" : "on " + @date %></li>
-  <input type="hidden" id="selected-day-event" value="<%= @day.nil? ? '' : @day %>" />
   <% if @events.nil? %>
     <li>Choose the date</li>
   <% else %>
@@ -11,7 +10,7 @@
         <div class="hidden-event">
           <%= render 'shared/create_event', :event => event %>
         </div>
-        <li><%= link_to_prototype_dialog event.name, 'save-update-event' + event.id.to_s, 'confirm',
+        <li><%= link_to_prototype_dialog event.name, 'save-update-event' + event.id.to_s, '', 'confirm',
                                          {:className => "alphacube", :width => '450', :height => 'null'} %></li>
       <% end %>
     <% end %>
