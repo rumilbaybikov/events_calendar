@@ -58,7 +58,7 @@
       <file leaf-file-name="event.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/event.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="4" selection-start="303" selection-end="303" vertical-scroll-proportion="-1.163995">
+            <state line="14" column="65" selection-start="287" selection-end="287" vertical-scroll-proportion="0.2589396">
               <folding />
             </state>
           </provider>
@@ -945,7 +945,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/event.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="4" selection-start="303" selection-end="303" vertical-scroll-proportion="-1.163995">
+        <state line="14" column="65" selection-start="287" selection-end="287" vertical-scroll-proportion="0.2589396">
           <folding />
         </state>
       </provider>
