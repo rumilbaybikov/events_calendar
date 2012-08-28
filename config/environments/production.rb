@@ -63,6 +63,8 @@ EventsCalendar::Application.configure do
 
   config.assets.precompile += %w( application.* bootstrap.* custom.* master.* pop_up/alert.* pop_up/alphacube.* pop_up/default.* jquery-1.7.2.min.js jquery-ui-1.8.18.custom.min.js rails.js coda.js pop_up/prototype.js pop_up/effects.js pop_up/window.js pop_up/window_effects.js )
 
+  config.action_mailer.default_url_options = { :host => 'fast-beyond-4575.herokuapp.com' }
+
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5

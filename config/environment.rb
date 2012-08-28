@@ -3,5 +3,3 @@ require File.expand_path('../application', __FILE__)
 
 # Initialize the rails application
 EventsCalendar::Application.initialize!
-
-config.action_mailer.default_url_options = { :host => 'fast-beyond-4575.herokuapp.com' }
