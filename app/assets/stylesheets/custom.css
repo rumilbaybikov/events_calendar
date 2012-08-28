@@ -128,13 +128,13 @@ footer nav {
 }
 
 .review-flash.errors {
-    background: #f4b4b4 url(../images/shadow_top.png) 0px -50px repeat-x;
+    background: #f4b4b4 url(shadow_top.png) 0px -50px repeat-x;
     color: #000000;
     border: 1px solid #000000;
 }
 
 .review-flash.notice {
-    background: #ccddff url(../images/shadow_top.png) 0px -50px repeat-x;
+    background: #ccddff url(shadow_top.png) 0px -50px repeat-x;
     color: #556699;
     border: 1px solid #99aacc;
     padding-bottom: 11px;
@@ -142,12 +142,12 @@ footer nav {
 }
 
 .flash.notice {
-    background: #ccddff url(../images/shadow_top.png) 0px -50px repeat-x;
+    background: #ccddff url(shadow_top.png) 0px -50px repeat-x;
     color: #556699;
     border: 1px solid #99aacc;
 }
 .flash.errors {
-    background: #f4b4b4 url(../images/shadow_top.png) 0px -50px repeat-x;
+    background: #f4b4b4 url(shadow_top.png) 0px -50px repeat-x;
     color: #000000;
     border: 1px solid #000000;
 }

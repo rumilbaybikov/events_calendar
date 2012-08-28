@@ -16,7 +16,7 @@ table#calendar-table td, table#calendar-table th {
 	height: 81px;
 	text-align: center;
 	vertical-align: middle;
-	background: url(../images/cells.png);
+	background: url(cells.png);
 	color: #444;
 	position: relative;
 }
@@ -37,7 +37,7 @@ table#calendar-table td.date_has_event:hover {
 	background-position: 162px -81px;
 }
 table#calendar-table td.padding {
-	background: url(../images/calpad.jpg);
+	background: url(calpad.jpg);
 }
 table#calendar-table td.today {
 	background-position: 81px 0px;
@@ -55,7 +55,7 @@ table#calendar-table .events ul {
 	display: none;
 	z-index: 1000;
 	padding: 15px;
-	background: #E7ECF2 url(../images/popup.png) no-repeat;
+	background: #E7ECF2 url(popup.png) no-repeat;
 	color: white;
 	border: 1px solid white;
 	font-size: 15px;
