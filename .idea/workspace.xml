@@ -46,10 +46,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="production.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="production.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="78" selection-start="2393" selection-end="2393" vertical-scroll-proportion="0.79045403">
+            <state line="63" column="78" selection-start="2393" selection-end="2393" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="event.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/event.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="4" selection-start="303" selection-end="303" vertical-scroll-proportion="-1.163995">
               <folding />
             </state>
           </provider>
@@ -91,26 +100,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="25" selection-start="597" selection-end="597" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1346083158000" expanded="true" signature="246:405" placeholder="..." />
-                <marker date="1346083158000" expanded="true" signature="326:396" placeholder="..." />
-                <marker date="1346083158000" expanded="true" signature="436:596" placeholder="..." />
-                <marker date="1346083158000" expanded="true" signature="515:587" placeholder="..." />
-                <marker date="1346083158000" expanded="true" signature="627:886" placeholder="..." />
-                <marker date="1346083158000" expanded="true" signature="710:877" placeholder="..." />
-                <marker date="1346083158000" expanded="true" signature="917:1127" placeholder="..." />
-                <marker date="1346083158000" expanded="true" signature="1013:1118" placeholder="..." />
-                <marker date="1346083158000" expanded="true" signature="1158:1428" placeholder="..." />
-                <marker date="1346083158000" expanded="true" signature="1249:1419" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="calendar_test.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/calendar_test.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -135,7 +124,6 @@
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/calendars_controller.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/models/event.rb" />
         <option value="$PROJECT_DIR$/app/controllers/events_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/shared/_events.html.erb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
@@ -146,6 +134,7 @@
         <option value="$PROJECT_DIR$/app/controllers/calendar_test.rb" />
         <option value="$PROJECT_DIR$/config/application.rb" />
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
+        <option value="$PROJECT_DIR$/app/models/event.rb" />
       </list>
     </option>
   </component>
@@ -268,6 +257,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="layouts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="events_calendar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="events_calendar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -817,11 +824,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/shared/_calendar.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/events/home.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="130" selection-start="339" selection-end="339" vertical-scroll-proportion="0.0" />
@@ -864,16 +866,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="25" selection-start="597" selection-end="597" vertical-scroll-proportion="0.0">
           <folding>
-            <marker date="1346083158000" expanded="true" signature="246:405" placeholder="..." />
-            <marker date="1346083158000" expanded="true" signature="326:396" placeholder="..." />
-            <marker date="1346083158000" expanded="true" signature="436:596" placeholder="..." />
-            <marker date="1346083158000" expanded="true" signature="515:587" placeholder="..." />
-            <marker date="1346083158000" expanded="true" signature="627:886" placeholder="..." />
-            <marker date="1346083158000" expanded="true" signature="710:877" placeholder="..." />
-            <marker date="1346083158000" expanded="true" signature="917:1127" placeholder="..." />
-            <marker date="1346083158000" expanded="true" signature="1013:1118" placeholder="..." />
-            <marker date="1346083158000" expanded="true" signature="1158:1428" placeholder="..." />
-            <marker date="1346083158000" expanded="true" signature="1249:1419" placeholder="..." />
+            <marker date="1346083158000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1346083158000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1346083158000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1346083158000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1346083158000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1346083158000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1346083158000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1346083158000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1346083158000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1346083158000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -936,7 +938,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="78" selection-start="2393" selection-end="2393" vertical-scroll-proportion="0.79045403">
+        <state line="63" column="78" selection-start="2393" selection-end="2393" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/event.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="4" selection-start="303" selection-end="303" vertical-scroll-proportion="-1.163995">
           <folding />
         </state>
       </provider>

@@ -13,6 +13,20 @@ class Event < ActiveRecord::Base
   @@date = nil
   @@events = nil
 
+  # sqlite
+  #@@event_query = "(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND strftime('%Y', date_event) = ?) OR " +
+  #                "(repeat = 1 AND date_event < ?) OR " +
+  #                "(strftime('%w', date_event) = ? AND repeat = 2 AND date_event < ?) OR" +
+  #                "(strftime('%d', date_event) = ? AND repeat = 3 AND date_event < ?) OR" +
+  #                "(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND repeat = 4 AND date_event < ?)"
+
+  # postgres
+  @@event_query = "(extract(day from date_column) = ? AND extract(month from date_column) = ? AND extract(year from date_column) = ?) OR " +
+                  "(repeat = 1 AND date_event < ?) OR " +
+                  "(extract(week from date_event) = ? AND repeat = 2 AND date_event < ?) OR" +
+                  "(extract(day from date_column) = ? AND repeat = 3 AND date_event < ?) OR" +
+                  "(extract(day from date_column) = ? AND extract(month from date_column) = ? AND repeat = 4 AND date_event < ?)"
+
   def self.make_calendar(date_time)
     @@day = date_time.day
     @@year = date_time.year
@@ -80,11 +94,7 @@ class Event < ActiveRecord::Base
         y = @@year.to_s
         c_d = DateTime.new(y.to_i, m.to_i, d.to_i)
         w = c_d.wday.to_s
-        event_count = where("(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND strftime('%Y', date_event) = ?) OR " +
-                            "(repeat = 1 AND date_event < ?) OR " +
-                            "(strftime('%w', date_event) = ? AND repeat = 2 AND date_event < ?) OR" +
-                            "(strftime('%d', date_event) = ? AND repeat = 3 AND date_event < ?) OR" +
-                            "(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND repeat = 4 AND date_event < ?)",
+        event_count = where(@@event_query,
                             d, m, y, c_d, w, c_d, d, c_d, d, m, c_d).where(current_user_events_opt).count()
         if event_count > 0
           @@calendar_days_styles[i] = 'date_has_event'
@@ -168,12 +178,8 @@ class Event < ActiveRecord::Base
         current_user_events_opt = 'user_id = ' + @@current_user.id.to_s
       end
 
-      @@events = Event.where("(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND strftime('%Y', date_event) = ?) OR " +
-                                "(repeat = 1 AND date_event < ?) OR " +
-                                "(strftime('%w', date_event) = ? AND repeat = 2 AND date_event < ?) OR" +
-                                "(strftime('%d', date_event) = ? AND repeat = 3 AND date_event < ?) OR" +
-                                "(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND repeat = 4 AND date_event < ?)",
-                            d, m, y, c_d, w, c_d, d, c_d, d, m, c_d).where(current_user_events_opt)
+      @@events = Event.where(@@event_query,
+                             d, m, y, c_d, w, c_d, d, c_d, d, m, c_d).where(current_user_events_opt)
 
       @@date = day + ' ' + Date::MONTHNAMES[month.to_i] + ' ' + y
     end
