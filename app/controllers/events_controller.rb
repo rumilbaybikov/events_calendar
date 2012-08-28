@@ -6,6 +6,8 @@ class EventsController < ApplicationController
     Event.my_events = false
     Event.current_user = nil
     make_calendar(date_time)
+
+    @event = Event.new
   end
 
   def dec_month
@@ -89,7 +91,7 @@ class EventsController < ApplicationController
 
     make_events()
 
-    make_calendar(Event.selected_date)
+    make_calendar(@event.date_event)
 
     respond_to do |format|
       format.js
@@ -162,8 +164,6 @@ class EventsController < ApplicationController
     @calendar_days = Event.calendar_days
     @days_in_calendar = Event.days_in_calendar
     @calendar_days_styles = Event.calendar_days_styles
-
-    @event = Event.new
   end
 
   def make_events

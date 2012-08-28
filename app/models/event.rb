@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
 
   attr_accessible :name, :date_event
 
-  validates :name, :presence => true
+  validates :name, :presence => true, :length => { :within => 3 .. 17 }
   validates :date_event, :presence => true
 
   @@selected_date = nil
@@ -14,18 +14,18 @@ class Event < ActiveRecord::Base
   @@events = nil
 
   # sqlite
-  #@@event_query = "(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND strftime('%Y', date_event) = ?) OR " +
-  #                "(repeat = 1 AND date_event < ?) OR " +
-  #                "(strftime('%w', date_event) = ? AND repeat = 2 AND date_event < ?) OR" +
-  #                "(strftime('%d', date_event) = ? AND repeat = 3 AND date_event < ?) OR" +
-  #                "(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND repeat = 4 AND date_event < ?)"
+  @@event_query = "(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND strftime('%Y', date_event) = ?) OR " +
+                  "(repeat = 1 AND date_event < ?) OR " +
+                  "(strftime('%w', date_event) = ? AND repeat = 2 AND date_event < ?) OR" +
+                  "(strftime('%d', date_event) = ? AND repeat = 3 AND date_event < ?) OR" +
+                  "(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND repeat = 4 AND date_event < ?)"
 
   # postgres
-  @@event_query = "(extract(day from date_event) = ? AND extract(month from date_event) = ? AND extract(year from date_event) = ?) OR " +
-                  "(repeat = 1 AND date_event < ?) OR " +
-                  "(extract(week from date_event) = ? AND repeat = 2 AND date_event < ?) OR" +
-                  "(extract(day from date_event) = ? AND repeat = 3 AND date_event < ?) OR" +
-                  "(extract(day from date_event) = ? AND extract(month from date_event) = ? AND repeat = 4 AND date_event < ?)"
+  #@@event_query = "(extract(day from date_event) = ? AND extract(month from date_event) = ? AND extract(year from date_event) = ?) OR " +
+  #                "(repeat = 1 AND date_event < ?) OR " +
+  #                "(extract(week from date_event) = ? AND repeat = 2 AND date_event < ?) OR" +
+  #                "(extract(day from date_event) = ? AND repeat = 3 AND date_event < ?) OR" +
+  #                "(extract(day from date_event) = ? AND extract(month from date_event) = ? AND repeat = 4 AND date_event < ?)"
 
   def self.make_calendar(date_time)
     @@day = date_time.day
