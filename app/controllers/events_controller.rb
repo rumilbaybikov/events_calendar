@@ -3,6 +3,8 @@ class EventsController < ApplicationController
 
   def home
     date_time = DateTime.now
+    Event.my_events = false
+    Event.current_user = nil
     make_calendar(date_time)
   end
 
@@ -84,6 +86,20 @@ class EventsController < ApplicationController
                                      params[:event]['date_event(3i)'].to_i)
     @event.repeat= params[:event][:repeat]
     @success = @event.save
+
+    make_events()
+
+    make_calendar(Event.selected_date)
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def destroy
+    id = params[:id]
+    @event = Event.find(id)
+    @event.delete
 
     make_events()
 

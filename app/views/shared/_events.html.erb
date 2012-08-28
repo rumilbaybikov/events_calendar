@@ -8,7 +8,7 @@
     <% else %>
       <% @events.each() do |event| %>
         <div class="hidden-event">
-          <%= render 'shared/create_event', :event => event %>
+          <%= render 'shared/create_edit_event', :event => event %>
         </div>
         <% unless event.user.eql?(current_user) %>
           <li><%= event.name %></li>
