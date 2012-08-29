@@ -23,7 +23,7 @@ class Event < ActiveRecord::Base
   # postgres
   @@event_query = "(extract(day from date_event) = ? AND extract(month from date_event) = ? AND extract(year from date_event) = ?) OR " +
                   "(repeat = 1 AND date_event < ?) OR " +
-                  "(extract(week from date_event) = ? AND repeat = 2 AND date_event < ?) OR" +
+                  "(extract(dow from date_event) = ? AND repeat = 2 AND date_event < ?) OR" +
                   "(extract(day from date_event) = ? AND repeat = 3 AND date_event < ?) OR" +
                   "(extract(day from date_event) = ? AND extract(month from date_event) = ? AND repeat = 4 AND date_event < ?)"
 
