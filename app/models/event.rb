@@ -14,18 +14,18 @@ class Event < ActiveRecord::Base
   @@events = nil
 
   # sqlite
-  #@@event_query = "(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND strftime('%Y', date_event) = ?) OR " +
-  #                "(repeat = 1 AND date_event < ?) OR " +
-  #                "(strftime('%w', date_event) = ? AND repeat = 2 AND date_event < ?) OR" +
-  #                "(strftime('%d', date_event) = ? AND repeat = 3 AND date_event < ?) OR" +
-  #                "(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND repeat = 4 AND date_event < ?)"
+  @@event_query = "(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND strftime('%Y', date_event) = ?) OR " +
+                  "(repeat = 1 AND date_event < ?) OR " +
+                  "(strftime('%w', date_event) = ? AND repeat = 2 AND date_event < ?) OR" +
+                  "(strftime('%d', date_event) = ? AND repeat = 3 AND date_event < ?) OR" +
+                  "(strftime('%d', date_event) = ? AND strftime('%m', date_event) = ? AND repeat = 4 AND date_event < ?)"
 
   # postgres
-  @@event_query = "(extract(day from date_event) = ? AND extract(month from date_event) = ? AND extract(year from date_event) = ?) OR " +
-                  "(repeat = 1 AND date_event < ?) OR " +
-                  "(extract(dow from date_event) = ? AND repeat = 2 AND date_event < ?) OR" +
-                  "(extract(day from date_event) = ? AND repeat = 3 AND date_event < ?) OR" +
-                  "(extract(day from date_event) = ? AND extract(month from date_event) = ? AND repeat = 4 AND date_event < ?)"
+  #@@event_query = "(extract(day from date_event) = ? AND extract(month from date_event) = ? AND extract(year from date_event) = ?) OR " +
+  #                "(repeat = 1 AND date_event < ?) OR " +
+  #                "(extract(dow from date_event) = ? AND repeat = 2 AND date_event < ?) OR" +
+  #                "(extract(day from date_event) = ? AND repeat = 3 AND date_event < ?) OR" +
+  #                "(extract(day from date_event) = ? AND extract(month from date_event) = ? AND repeat = 4 AND date_event < ?)"
 
   def self.make_calendar(date_time)
     @@day = date_time.day
@@ -34,15 +34,22 @@ class Event < ActiveRecord::Base
     first_day_of_month = date_time.at_beginning_of_month
     last_day_of_month = date_time.at_end_of_month
     day_of_week = first_day_of_month.wday
+
+    # число дней предыдущего месяца
     @@days_in_calendar_before = 0
     if day_of_week == 0
       @@days_in_calendar_before = 6
     else
       @@days_in_calendar_before = day_of_week - 1
     end
-    @@days_in_calendar = @@days_in_calendar_before + last_day_of_month.day
-    @@days_in_calendar_after = 7 -(@@days_in_calendar - (@@days_in_calendar / 7) * 7)
 
+    # число дней слудующего месяца
+    @@days_in_calendar = @@days_in_calendar_before + last_day_of_month.day
+
+    @@days_in_calendar_after = 7 -(@@days_in_calendar - (@@days_in_calendar / 7) * 7)
+    @@days_in_calendar_after = @@days_in_calendar_after == 7 ? 0 : @@days_in_calendar_after
+
+    # общее число дней
     @@days_in_calendar_overall = @@days_in_calendar + @@days_in_calendar_after
 
     @@calendar_days = Array.new(@@days_in_calendar_overall)

@@ -67,7 +67,7 @@ class EventsController < ApplicationController
     @event.repeat = params[:event][:repeat]
     @success = @event.save
 
-    Event.selected_date = DateTime.new(year.to_i, month.to_i, day.to_i)
+    Event.selected_date = date_event
 
     make_events()
 
