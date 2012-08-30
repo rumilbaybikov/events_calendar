@@ -47,6 +47,7 @@ class Event < ActiveRecord::Base
 
     @@calendar_days = Array.new(@@days_in_calendar_overall)
 
+    # заполнить дни предыдущего месяца
     i = @@days_in_calendar_before
     count = 0
     while i > 0 do
@@ -55,12 +56,14 @@ class Event < ActiveRecord::Base
       @@calendar_days[i] = (first_day_of_month - count).day
     end
 
+    # заполнить дни текущего месяца
     i = 1
     while i <= last_day_of_month.day do
-      @@calendar_days[i + @@days_in_calendar_before -1] = i
+      @@calendar_days[i + @@days_in_calendar_before - 1] = i
       i += 1
     end
 
+    # заполнить дни следующего месяца
     i = 0
     while i < @@days_in_calendar_after do
       i += 1

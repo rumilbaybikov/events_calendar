@@ -46,6 +46,7 @@ class EventsController < ApplicationController
     day = params[:day]
     month = params[:month]
     year = params[:year]
+
     Event.selected_date = DateTime.new(year.to_i, month.to_i, day.to_i)
 
     make_events()
@@ -58,20 +59,19 @@ class EventsController < ApplicationController
 
     @event = Event.new
     @event.name = params[:event][:name]
-    @event.date_event = DateTime.new(params[:event]['date_event(1i)'].to_i,
+    date_event = DateTime.new(params[:event]['date_event(1i)'].to_i,
                                      params[:event]['date_event(2i)'].to_i,
                                      params[:event]['date_event(3i)'].to_i)
+    @event.date_event = date_event
     @event.user = current_user
     @event.repeat = params[:event][:repeat]
     @success = @event.save
 
+    Event.selected_date = DateTime.new(year.to_i, month.to_i, day.to_i)
+
     make_events()
 
-    if Event.selected_date.nil?
-      make_calendar(DateTime.now)
-    else
-      make_calendar(Event.selected_date)
-    end
+    make_calendar(date_event)
 
     respond_to do |format|
       format.js
@@ -83,15 +83,16 @@ class EventsController < ApplicationController
     id = params[:id]
     @event = Event.find(id)
     @event.name = params[:event][:name]
-    @event.date_event = DateTime.new(params[:event]['date_event(1i)'].to_i,
+    date_event = DateTime.new(params[:event]['date_event(1i)'].to_i,
                                      params[:event]['date_event(2i)'].to_i,
                                      params[:event]['date_event(3i)'].to_i)
+    @event.date_event = date_event
     @event.repeat= params[:event][:repeat]
     @success = @event.save
 
     make_events()
 
-    make_calendar(@event.date_event)
+    make_calendar(date_event)
 
     respond_to do |format|
       format.js
